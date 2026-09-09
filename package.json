@@ -1,0 +1,20 @@
+{
+  "name": "doit",
+  "version": "1.0.0",
+  "private": true,
+  "description": "DoIt! — turn a rambling voice note into a structured, deadline-tagged to-do list in seconds.",
+  "scripts": {
+    "install:all": "npm install --prefix server && npm install --prefix client",
+    "dev": "concurrently -n server,client -c magenta,cyan \"npm run dev --prefix server\" \"npm run dev --prefix client\"",
+    "dev:server": "npm run dev --prefix server",
+    "dev:client": "npm run dev --prefix client",
+    "build": "npm run install:all && npm run build --prefix client",
+    "start": "node server/index.js"
+  },
+  "keywords": ["voice-to-tasks", "speech-to-text", "llm", "hackathon"],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "concurrently": "^10.0.5"
+  }
+}
