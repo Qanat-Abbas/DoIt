@@ -8,8 +8,13 @@ tagged with an owner and a deadline, with one tap to push any of them
 straight into Google Calendar.
 
 🏆 **4th place** at the Replit Buildathon — *"Solving Everyday Problems Using
-AI."* See [`DoIt-PRD.md`](./DoIt-PRD.md) for the full product spec and
+AI."* **[Try it live →](https://doit-p6bx.onrender.com)** See
+[`DoIt-PRD.md`](./DoIt-PRD.md) for the full product spec and
 [`DEPLOY.md`](./DEPLOY.md) to deploy your own copy.
+
+> Hosted on Render's free tier, which spins down after ~15 minutes idle —
+> the first request after a quiet spell can take 30–50s to wake it back up.
+> A slow first load means it's warming up, not broken.
 
 ---
 
