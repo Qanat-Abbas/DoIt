@@ -12,6 +12,13 @@ dist
 dist-ssr
 *.local
 
+# Not committed: npm has a known bug (npm/cli#4828) where installing from a
+# committed lockfile on a different OS than it was generated on can skip
+# platform-specific optional dependencies (here, Vite 8's rolldown native
+# binary), even with a freshly regenerated lockfile. Leaving no lockfile
+# forces a clean, current-platform-native resolve on every install.
+package-lock.json
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
