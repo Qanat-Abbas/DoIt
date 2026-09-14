@@ -13,7 +13,7 @@
   },
   "keywords": ["voice-to-tasks", "speech-to-text", "llm", "hackathon"],
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "devDependencies": {
     "concurrently": "^10.0.5"
   }

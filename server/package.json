@@ -1,7 +1,7 @@
 {
   "name": "doit-server",
   "version": "1.0.0",
-  "description": "DoIt! backend — proxies Groq's free-tier Whisper + Llama APIs",
+  "description": "DoIt! backend — proxies Groq's free-tier Whisper + GPT-OSS APIs",
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
@@ -9,7 +9,7 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "type": "commonjs",
   "dependencies": {
     "cors": "^2.8.6",

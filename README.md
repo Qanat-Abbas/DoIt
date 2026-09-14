@@ -7,8 +7,9 @@ meeting or lecture — into a clean, structured checklist of action items, each
 tagged with an owner and a deadline, with one tap to push any of them
 straight into Google Calendar.
 
-Built for the *"Solving Everyday Problems Using AI"* buildathon. See
-[`DoIt-PRD.md`](./DoIt-PRD.md) for the original product spec.
+🏆 **4th place** at the Replit Buildathon — *"Solving Everyday Problems Using
+AI."* See [`DoIt-PRD.md`](./DoIt-PRD.md) for the full product spec and
+[`DEPLOY.md`](./DEPLOY.md) to deploy your own copy.
 
 ---
 
@@ -146,12 +147,11 @@ backend). Open the client URL in your browser.
 | FR-7 | Check off completed items (local state) | ✅ |
 | FR-8 | Loading states for both processing stages | ✅ `LoadingState` + step indicator |
 | FR-9 | Silent fallback to cached data on API failure | ✅ `/api/sample`, timeout + try/catch in `App.jsx` |
+| FR-10 | Push a task to Google Calendar, with natural-language deadlines resolved to a real date | ✅ `lib/calendar.js` + `chrono-node` |
 
-Beyond the PRD's original scope, one non-goal was deliberately promoted to a
-real feature: **Google Calendar push**, via the key-free link approach above
-— chosen specifically because it avoids the OAuth setup cost the PRD warned
-against. Notion push and a daily digest remain future work, shown as muted
-"coming soon" chips on the landing screen.
+Notion push and a daily digest remain future work, shown as muted "coming
+soon" chips on the landing screen — see [Future work](#future-work-not-built-by-design)
+below.
 
 ## Project structure
 
@@ -159,7 +159,10 @@ against. Notion push and a daily digest remain future work, shown as muted
 DoIt/
 ├── DoIt-PRD.md
 ├── README.md
-├── package.json          # root dev orchestration (concurrently)
+├── DEPLOY.md
+├── LICENSE
+├── render.yaml            # Render Blueprint for one-service deployment
+├── package.json           # root dev orchestration (concurrently)
 ├── server/                # Express API — proxies Groq, hides the API key
 │   ├── index.js
 │   ├── routes/
@@ -198,3 +201,22 @@ things honest without being alarming.
   is worth it beyond a single demo session
 - Persistent history across sessions
 - Slack/email daily digest of extracted action items
+
+## Want to extend this?
+
+The codebase is intentionally small — two route files on the backend, a
+handful of components on the frontend — so any item in Future Work above is
+a reasonable first PR. A few good entry points:
+
+- `server/routes/extract.js` — the extraction prompt. Try adjusting the task
+  cap, adding fields, or swapping in a different Groq model.
+- `client/src/lib/calendar.js` — the Calendar link builder. A similar
+  pattern (build a URL, no OAuth) could add Outlook or Apple Calendar.
+- `client/src/lib/api.js` — swap Groq for any OpenAI-compatible endpoint by
+  changing the base URL and model names in the two server routes.
+
+Issues and PRs are welcome.
+
+## License
+
+[MIT](./LICENSE) — use it, fork it, ship your own version.
